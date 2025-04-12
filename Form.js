@@ -1,14 +1,13 @@
+// ===================== Elements ========================
 let formSteps = document.querySelectorAll('.form-step');
 let form = document.getElementById('multistepform');
 let nextBtn = document.querySelectorAll('.next-btn');
 let prevBtn = document.querySelectorAll('.prev-btn');
 let success = document.getElementById('sucess-message');
 
-
-
 let currentStep = 0;
 let educationDetails = [];
-
+// ================ Personal & Document Elements ===============================
 let fullName = document.getElementById('name');
 let age = document.getElementById('dob');
 let mobileNumber = document.getElementById('mobile');
@@ -17,13 +16,14 @@ let fatherName = document.getElementById('fathername');
 let motherName = document.getElementById('mothername');
 let aadhar = document.getElementById('aadhar');
 let pan = document.getElementById('pan');
-
+// ================== Education Elements =========================
 let higherStudiesInput = document.getElementById('higherstudies');
 let universityInput = document.getElementById('university');
 let percentageInput = document.getElementById('percentage');
 let completeYearInput = document.getElementById('completeyear');
 let addCourseInput = document.getElementById('addcourse');
 
+// ==================== Next Button Function ========================
 nextBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -36,6 +36,7 @@ nextBtn.forEach((btn) => {
     });
 });
 
+// ====================== Previous Button Function =====================
 prevBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -46,6 +47,7 @@ prevBtn.forEach((btn) => {
     });
 });
 
+// ======================== Form Validate ==============================
 function validate(stepIndex) {
     let fields = {
         0: ['name', 'dob', 'mobile', 'email', 'fathername', 'mothername'],
@@ -88,13 +90,13 @@ function validate(stepIndex) {
         }
 
         if (field === 'mobile' && input.value) {
-            let mobilePattern = /^\d{10}$/;
+            let mobilePattern = /^(?:\d{3})?[0-9]\d{9}$/;
             if (!mobilePattern.test(input.value)) {
                 error.textContent = "Enter a valid Indian mobile number.";
                 input.style.border = "2px solid red";
                 isValid = false;
             }
-        }        
+        }
     });
 
     if (stepIndex === 0) {
@@ -120,6 +122,7 @@ function validate(stepIndex) {
     return isValid;
 }
 
+// ===================== Submit Button Function ========================================
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -153,6 +156,7 @@ form.addEventListener('submit', (e) => {
     }
 });
 
+// ========================== Progress Bar Function ============================
 function updateProgressBar() {
     let circles = document.querySelectorAll('.step-circle');
     let progress = document.getElementById('progress');
@@ -164,6 +168,7 @@ function updateProgressBar() {
     progress.style.width = `${(currentStep) / (formSteps.length - 1) * 100}%`;
 }
 
+// ===================== Temp Store Function ============================================
 function staticvalue() {
     let genderValue = document.querySelector('input[name="gender"]:checked');
 
@@ -208,6 +213,7 @@ window.addEventListener('load', () => {
     }
 });
 
+// ================================ Add Education Function ================================
 document.getElementById('addeducation').addEventListener('click', () => {
     let HigherStudies = higherStudiesInput.value.trim();
     let UniversityName = universityInput.value.trim();
@@ -251,6 +257,7 @@ document.getElementById('addeducation').addEventListener('click', () => {
     staticvalue();
 });
 
+// ========================= Display Education Function ========================
 function displayEducationDetails(entry) {
     let edulist = document.getElementById('educationlist');
     let li = document.createElement('li');
