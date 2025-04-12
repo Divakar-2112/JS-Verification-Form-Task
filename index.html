@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container"> 
+        <h1>Verification Form</h1>
+        <form action="" id="multistepform">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+                <div class="step-circle active">1</div>
+                <div class="step-circle">2</div>
+                <div class="step-circle">3</div>
+            </div>
+            <!-- step-1 -->
+            <div class="form-step active">
+                <h3>Personal Details:-</h3>
+                <label for="name">Name:-<sup>*</sup></label>
+                <input type="text" name="Fullname" placeholder="Enter a Fullname" id="name" oninput="staticvalue()" >
+                <div class="alert" id="name-error"></div>
+                <label for="dob">Date Of Birth:-<sup>*</sup></label>
+                <input type="date" name="Dateofbirth" id="dob" oninput="staticvalue()" >
+                <div class="alert" id="dob-error"></div>
+                <label for="gender" id="gender" >Gender:-<sup>*</sup></label>
+                <label for="male">
+                    <input type="radio" name="gender" id="male" value="male">Male</label>
+                <label for="female"><input type="radio" name="gender" id="female" value="Female">Female</label>
+                <div class="alert" id="gender-error"></div>
+                <label for="mobile">Mobile:-<sup>*</sup></label>
+                <input type="tel" name="Mobile" id="mobile" placeholder="Enter a Mobile Number"  oninput="staticvalue()" maxlength="10" >
+                <div class="alert" id="mobile-error"></div>
+                <label for="email">Email:-<sup>*</sup></label>
+                <input type="email" name="email" placeholder="Enter a Email"  id="email">
+                <div class="alert" id="email-error"></div>
+                <label for="fathername"> Father Name:-<sup>*</sup></label>
+                <input type="text" name="fathername" placeholder="Enter a Father Name" oninput="staticvalue()"  id="fathername">
+                <div class="alert" id="fathername-error"></div>
+                <label for="mothername">Mother Name:-<sup>*</sup></label>
+                <input type="text" name="mothername" placeholder="Enter a Mother Name" oninput="staticvalue()"  id="mothername">
+                <div class="alert" id="mothername-error"></div>
+
+                <button class="next-btn">Next</button>
+
+            </div>
+
+            <!-- step-2 -->
+            <div class="form-step">
+                <h3>Education Details:-</h3>
+                <label for="higherstudies">Higher Studies:-<sup>*</sup></label>
+                <input type="text" name="higherstudies" placeholder="Enter a Education details" oninput="staticvalue()"  id="higherstudies">
+                <div class="alert" id="higherstudies-error"></div>
+                <label for="university">University/school:-<sup>*</sup></label>
+                <input type="text" name="university" placeholder="Enter a University/school" oninput="staticvalue()"  id="university">
+                <div class="alert" id="university-error"></div>
+                <label for="percentage">Percentage:-<sup>*</sup></label>
+                <input type="number" name="percentage" placeholder="Enter a Percentage" oninput="staticvalue()"  id="percentage">
+                <div class="alert" id="percentage-error"></div>
+                <label for="completeyear">Passed Out Year<sup>*</sup></label>
+                <input type="date" name="Year" id="completeyear" oninput="staticvalue()" >
+                <div class="alert" id="completeyear-error"></div>
+                <label for="addcourse">Additional Course:-</label>
+                <input type="text" name="addcourse" placeholder="Enter a Course" id="addcourse" oninput="staticvalue()" >
+                <div class="alert" id="addcourse-error"></div>
+                <button type="button" id="addeducation"> Add Educations</button>
+                <button class="prev-btn">Prev</button>
+                <button class="next-btn">Next</button>
+
+                <ul id="educationlist"></ul>
+            </div>
+
+            <!-- step-3 -->
+            <div class="form-step">
+                <h3>Document Upload</h3>
+                <label for="aadhar">Aadhar Card:-<sup>*</sup></label>
+                <input type="file" name="aadhar" accept=".png,.jpg,.pdf"  id="aadhar" oninput="staticvalue()" >
+                <div class="alert" id="aadhar-error"></div>
+                <label for="pancard">Pan Card:-<sup>*</sup></label>
+                <input type="file" name="pan" accept=".png,.jpg,.pdf"  oninput="staticvalue()" id="pan">
+                <div class="alert" id="pan-error"></div>
+                <button class="prev-btn">Prev</button>
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        </form>
+        <div id="sucess-message">
+            <h2>Form Sucessfully submited.</h2>
+        </div>
+    </div>
+    <script src="Form.js"></script>
+</body>
+
+</html>
