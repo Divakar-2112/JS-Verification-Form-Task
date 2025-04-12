@@ -88,13 +88,13 @@ function validate(stepIndex) {
         }
 
         if (field === 'mobile' && input.value) {
-            let mobilePattern = /^(?:\d{3})?[0-9]\d{9}$/;
+            let mobilePattern = /^\d{10}$/;
             if (!mobilePattern.test(input.value)) {
                 error.textContent = "Enter a valid Indian mobile number.";
                 input.style.border = "2px solid red";
                 isValid = false;
             }
-        }
+        }        
     });
 
     if (stepIndex === 0) {
@@ -124,7 +124,6 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     if (validate(0) && validate(1) && validate(2)) {
-        alert('Form Submitted Successfully!');
 
         let genderValue = document.querySelector('input[name="gender"]:checked');
 
